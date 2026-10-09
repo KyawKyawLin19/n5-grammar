@@ -1,25 +1,244 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="JLPT N5 Japanese grammar lessons with English and Myanmar explanations, practice and quick review.">
-<title>JLPT N5 Grammar | Study Library</title>
-<style>
-:root{color-scheme:dark;--bg:#0b1220;--card:#172238;--muted:#aabbd1;--line:#2b3a52;--accent:#76a9ff;--text:#f1f5fc}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,#172b4b,transparent 45%),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:1000px;margin:auto;padding:40px 20px 80px}.eyebrow{color:var(--accent);font-size:.85rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.16;margin:10px 0 15px}h2{font-size:1.4rem;margin:42px 0 16px}p{color:var(--muted)}.intro{max-width:680px}.stats{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}.stat{border:1px solid var(--line);border-radius:99px;padding:7px 14px;color:#d6e3f6;font-size:.85rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}.card:hover{transform:translateY(-3px);border-color:var(--accent)}.tag{color:#a6c7ff;font-weight:750;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}.card h3{margin:10px 0;font-size:1.3rem}.jp{font-size:1.12rem;color:#fff}.card p{margin:10px 0 20px;flex:1}.link{display:inline-block;align-self:flex-start;padding:10px 15px;border-radius:10px;background:#a9caff;color:#09162b;font-weight:800;text-decoration:none}.link:focus-visible{outline:3px solid white;outline-offset:3px}.note{margin-top:35px;border:1px dashed var(--line);border-radius:14px;padding:18px;color:var(--muted)}footer{margin-top:48px;color:var(--muted);font-size:.85rem}@media(max-width:500px){main{padding-top:28px}.card{padding:20px}}
-</style>
-</head>
-<body><main>
-<header><div class="eyebrow">Japanese Grammar Study Hub</div><h1>JLPT N5 Grammar Library</h1><p class="intro">Learn Japanese grammar step by step with clear <strong>English + Myanmar</strong> explanations, examples, practice questions and exam-day revision notes.</p><div class="stats"><span class="stat">3 study pages</span><span class="stat">English + မြန်မာ</span><span class="stat">Mobile friendly</span><span class="stat">No login needed</span></div></header>
-<section aria-labelledby="lessons"><h2 id="lessons">Available lessons</h2><div class="grid" id="lessonGrid"></div></section>
-<footer>JLPT N5 Grammar • Study at your own pace</footer>
-</main>
-<script>
-// ADD NEW PAGES HERE. Put the corresponding HTML files in your repository.
-const lessons = [
- {type:'Particles · Foundation',title:'に・で・が・を',jp:'に / で / が / を',description:'Particle meanings, differences, example sentences and interactive JLPT N5 practice.',file:'particles.html',action:'Study particles →'},
- {type:'Minna no Nihongo · Lesson 19',title:'Grammar Explanation + Practice',jp:'たことがあります・たり〜たり・く/になります',description:'Detailed English and Myanmar explanations, conjugation patterns and interactive practice.',file:'lesson19.html',action:'Start Lesson 19 →'},
- {type:'Lesson 19 · Exam Revision',title:'Quick Review & Memorization',jp:'短い復習ノート',description:'Short, easy-to-memorize notes and grammar reminders for exam day.',file:'lesson19_quick_review.html',action:'Review quickly →'}
-];
-const grid=document.getElementById('lessonGrid');
-for(const lesson of lessons){const card=document.createElement('article');card.className='card';for(const [cls,value,tag] of [['tag',lesson.type,'div'],['',lesson.title,'h3'],['jp',lesson.jp,'div'],['',lesson.description,'p']]){const el=document.createElement(tag);if(cls)el.className=cls;el.textContent=value;card.appendChild(el)}const a=document.createElement('a');a.className='link';a.href=lesson.file;a.textContent=lesson.action;card.appendChild(a);grid.appendChild(card)}
-</script></body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="JLPT N5 Japanese grammar lessons with English and Myanmar explanations, practice and quick review."
+    />
+    <title>JLPT N5 Grammar | Study Library</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b1220;
+        --card: #172238;
+        --muted: #aabbd1;
+        --line: #2b3a52;
+        --accent: #76a9ff;
+        --text: #f1f5fc;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 15% 0%, #172b4b, transparent 45%), var(--bg);
+        color: var(--text);
+        font:
+          16px/1.65 system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+      }
+      main {
+        max-width: 1000px;
+        margin: auto;
+        padding: 40px 20px 80px;
+      }
+      .eyebrow {
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.3rem);
+        line-height: 1.16;
+        margin: 10px 0 15px;
+      }
+      h2 {
+        font-size: 1.4rem;
+        margin: 42px 0 16px;
+      }
+      p {
+        color: var(--muted);
+      }
+      .intro {
+        max-width: 680px;
+      }
+      .stats {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 26px 0;
+      }
+      .stat {
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        padding: 7px 14px;
+        color: #d6e3f6;
+        font-size: 0.85rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+      }
+      .tag {
+        color: #a6c7ff;
+        font-weight: 750;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .card h3 {
+        margin: 10px 0;
+        font-size: 1.3rem;
+      }
+      .jp {
+        font-size: 1.12rem;
+        color: #fff;
+      }
+      .card p {
+        margin: 10px 0 20px;
+        flex: 1;
+      }
+      .link {
+        display: inline-block;
+        align-self: flex-start;
+        padding: 10px 15px;
+        border-radius: 10px;
+        background: #a9caff;
+        color: #09162b;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      .link:focus-visible {
+        outline: 3px solid white;
+        outline-offset: 3px;
+      }
+      .note {
+        margin-top: 35px;
+        border: 1px dashed var(--line);
+        border-radius: 14px;
+        padding: 18px;
+        color: var(--muted);
+      }
+      footer {
+        margin-top: 48px;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      @media (max-width: 500px) {
+        main {
+          padding-top: 28px;
+        }
+        .card {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="eyebrow">Japanese Grammar Study Hub</div>
+        <h1>JLPT N5 Grammar Library</h1>
+        <p class="intro">
+          Learn Japanese grammar step by step with clear
+          <strong>English + Myanmar</strong> explanations, examples, practice
+          questions and exam-day revision notes.
+        </p>
+        <div class="stats">
+          <span class="stat">3 study pages</span
+          ><span class="stat">English + မြန်မာ</span
+          ><span class="stat">Mobile friendly</span
+          ><span class="stat">No login needed</span>
+        </div>
+      </header>
+      <section aria-labelledby="lessons">
+        <h2 id="lessons">Available lessons</h2>
+        <div class="grid" id="lessonGrid"></div>
+      </section>
+      <footer>JLPT N5 Grammar • Study at your own pace</footer>
+    </main>
+    <script>
+      // ADD NEW PAGES HERE. Put the corresponding HTML files in your repository.
+      const lessons = [
+        {
+          type: "Particles · Foundation",
+          title: "に・で・が・を",
+          jp: "に / で / が / を",
+          description:
+            "Particle meanings, differences, example sentences and interactive JLPT N5 practice.",
+          file: "particles.html",
+          action: "Study particles →",
+        },
+        {
+          type: "Minna no Nihongo · Lesson 19",
+          title: "Grammar Explanation + Practice",
+          jp: "たことがあります・たり〜たり・く/になります",
+          description:
+            "Detailed English and Myanmar explanations, conjugation patterns and interactive practice.",
+          file: "lesson19.html",
+          action: "Start Lesson 19 →",
+        },
+        {
+          type: "Lesson 19 · Exam Revision",
+          title: "Quick Review & Memorization",
+          jp: "短い復習ノート",
+          description:
+            "Short, easy-to-memorize notes and grammar reminders for exam day.",
+          file: "lesson19_quick_review.html",
+          action: "Review quickly →",
+        },
+        {
+          type: "Minna no Nihongo · Lesson 21",
+          title: "Lesson 21 Grammar + Practice",
+          jp: "と思います・と言いました・でしょう",
+          description: "English and Myanmar explanations with JLPT practice.",
+          file: "lesson21.html",
+          action: "Start Lesson 21 →",
+        },
+        {
+          type: "Minna no Nihongo · Lesson 21",
+          title: "Lesson 21 Quick Review",
+          jp: "試験前の復習",
+          description: "Short notes and exam-day memorization.",
+          file: "lesson21_quick_review.html",
+          action: "Quick Review →",
+        },
+      ];
+      const grid = document.getElementById("lessonGrid");
+      for (const lesson of lessons) {
+        const card = document.createElement("article");
+        card.className = "card";
+        for (const [cls, value, tag] of [
+          ["tag", lesson.type, "div"],
+          ["", lesson.title, "h3"],
+          ["jp", lesson.jp, "div"],
+          ["", lesson.description, "p"],
+        ]) {
+          const el = document.createElement(tag);
+          if (cls) el.className = cls;
+          el.textContent = value;
+          card.appendChild(el);
+        }
+        const a = document.createElement("a");
+        a.className = "link";
+        a.href = lesson.file;
+        a.textContent = lesson.action;
+        card.appendChild(a);
+        grid.appendChild(card);
+      }
+    </script>
+  </body>
+</html>
